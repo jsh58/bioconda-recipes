@@ -1,0 +1,30 @@
+package:
+  name: ngmerge
+  version: 0.2
+
+source:
+  fn: v0.2.tar.gz
+  url: https://github.com/jsh58/NGmerge/archive/v0.2.tar.gz
+  md5: a27a4b3a86f1ba3ed37e8d29040c960b
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - gcc
+    - openmp
+    - zlib {{CONDA_ZLIB}}*
+  
+  run:
+    - libgcc
+    - openmp
+    - zlib {{CONDA_ZLIB}}*
+
+test:
+  commands:
+    - NGmerge --version 2>&1 | grep version > /dev/null
+
+about:
+  home: https://github.com/jsh58/NGmerge
+  license: MIT
